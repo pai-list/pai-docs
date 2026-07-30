@@ -6,7 +6,7 @@ Everything you need to build, deploy, and monetize AI agents on Pi Network.
 
 ## Site
 
-Coming soon at **docs.pai.build**
+VitePress documentation for PAI, ready to deploy to GitHub Pages.
 
 ## Contents
 
@@ -47,9 +47,12 @@ docs/
 ```bash
 git clone https://github.com/pai-list/docs
 cd docs
-npm install
+npm ci
 npm run dev
 ```
+
+For a production build, run `npm run build`. GitHub Actions deploys pushes to `main`
+using the repository's GitHub Pages environment.
 
 ## Quick Links
 

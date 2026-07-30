@@ -1,0 +1,23 @@
+{
+  "name": "pai-docs",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs",
+    "lint": "prettier --check \"docs/**/*.{md,ts,vue,css}\" \"*.json\" \".github/**/*.yml\"",
+    "format": "prettier --write \"docs/**/*.{md,ts,vue,css}\" \"*.json\" \".github/**/*.yml\"",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "prettier": "^3.5.3",
+    "typescript": "^5.7.0",
+    "vitepress": "^1.6.3",
+    "vitest": "^2.0.0",
+    "vue": "^3.5.13"
+  }
+}

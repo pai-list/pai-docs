@@ -1,0 +1,216 @@
+:root {
+  --vp-c-brand-1: #78f0c4;
+  --vp-c-brand-2: #52caa2;
+  --vp-c-brand-3: #39a987;
+  --vp-c-bg: #0a0d14;
+  --vp-c-bg-alt: #10151f;
+  --vp-c-bg-elv: #151b27;
+  --vp-c-text-1: #edf4f0;
+  --vp-c-text-2: #aab8b2;
+  --vp-code-bg: #10151f;
+  --vp-font-family-base: Inter, ui-sans-serif, system-ui, sans-serif;
+  --vp-font-family-mono: 'SFMono-Regular', Consolas, monospace;
+}
+.dark {
+  --vp-c-bg: #0a0d14;
+}
+.VPNavBar {
+  border-bottom: 1px solid rgba(120, 240, 196, 0.11) !important;
+  background: rgba(10, 13, 20, 0.8) !important;
+  backdrop-filter: blur(16px);
+}
+.VPNavBar .title {
+  font-weight: 750;
+  letter-spacing: -0.03em;
+}
+.VPNavBarTitle .logo {
+  height: 26px;
+}
+.VPButton.brand {
+  border-color: #78f0c4;
+  background: #78f0c4;
+  color: #07110e;
+  font-weight: 700;
+}
+.VPButton.brand:hover {
+  background: #a2f8d9;
+}
+.VPContent {
+  padding-bottom: 48px;
+}
+.VPDoc .content {
+  max-width: 780px;
+}
+.VPDoc h1 {
+  letter-spacing: -0.045em;
+  font-size: 42px;
+}
+.VPDoc h2 {
+  letter-spacing: -0.025em;
+  margin-top: 48px;
+}
+.VPDoc a {
+  font-weight: 550;
+}
+.VPDoc .vp-doc div[class*='language-'] {
+  border: 1px solid rgba(120, 240, 196, 0.12);
+}
+.VPSidebar {
+  border-right: 1px solid rgba(120, 240, 196, 0.08);
+}
+.VPFooter {
+  border-top: 1px solid rgba(120, 240, 196, 0.1);
+}
+.pai-hero {
+  position: relative;
+  overflow: hidden;
+  max-width: 1152px;
+  margin: 0 auto;
+  padding: 130px 48px 80px;
+  min-height: 660px;
+}
+.pai-hero:before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(120, 240, 196, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(120, 240, 196, 0.055) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: linear-gradient(to bottom, black, transparent 80%);
+}
+.pai-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(1px);
+  opacity: 0.45;
+}
+.pai-orb-one {
+  width: 440px;
+  height: 440px;
+  right: -70px;
+  top: 10px;
+  background: radial-gradient(circle at 35% 35%, #78f0c4, transparent 63%);
+}
+.pai-orb-two {
+  width: 340px;
+  height: 340px;
+  right: 110px;
+  top: 190px;
+  background: radial-gradient(circle, #6474fa, transparent 66%);
+  opacity: 0.2;
+}
+.pai-hero > *:not(.pai-orb) {
+  position: relative;
+}
+.eyebrow {
+  margin: 0 0 20px;
+  color: #78f0c4;
+  font-size: 12px;
+  font-weight: 750;
+  letter-spacing: 0.14em;
+}
+.pai-hero h1 {
+  max-width: 740px;
+  margin: 0;
+  color: #f4faf7;
+  font-size: clamp(54px, 8vw, 96px);
+  line-height: 0.94;
+  letter-spacing: -0.075em;
+}
+.pai-hero h1 span {
+  color: #78f0c4;
+}
+.copy {
+  max-width: 570px;
+  margin: 30px 0;
+  font-size: 19px;
+  line-height: 1.65;
+  color: #b5c4bd;
+}
+.actions {
+  display: flex;
+  gap: 12px;
+}
+.action {
+  display: inline-flex;
+  gap: 14px;
+  align-items: center;
+  padding: 13px 18px;
+  border-radius: 7px;
+  font-size: 14px;
+  font-weight: 700;
+  transition: 0.2s;
+}
+.action.primary {
+  color: #08110e;
+  background: #78f0c4;
+}
+.action.primary:hover {
+  color: #08110e;
+  background: #a2f8d9;
+}
+.action.secondary {
+  border: 1px solid #2a3540;
+  color: #d9e5df;
+}
+.action.secondary:hover {
+  border-color: #78f0c4;
+  color: #78f0c4;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  max-width: 760px;
+  margin-top: 88px;
+  border: 1px solid rgba(120, 240, 196, 0.14);
+  background: rgba(120, 240, 196, 0.14);
+}
+.hero-grid div {
+  min-height: 116px;
+  padding: 18px;
+  background: rgba(11, 17, 24, 0.86);
+}
+.hero-grid b {
+  display: block;
+  color: #78f0c4;
+  font-family: var(--vp-font-family-mono);
+  font-size: 11px;
+  margin-bottom: 17px;
+}
+.hero-grid strong,
+.hero-grid span {
+  display: block;
+}
+.hero-grid strong {
+  color: #eaf4ef;
+  font-size: 14px;
+}
+.hero-grid span {
+  color: #85958e;
+  font-size: 13px;
+  margin-top: 4px;
+}
+@media (max-width: 640px) {
+  .pai-hero {
+    padding: 88px 24px 50px;
+    min-height: auto;
+  }
+  .pai-hero h1 {
+    font-size: 54px;
+  }
+  .copy {
+    font-size: 16px;
+  }
+  .hero-grid {
+    grid-template-columns: 1fr;
+    margin-top: 55px;
+  }
+  .hero-grid div {
+    min-height: auto;
+  }
+  .actions {
+    flex-wrap: wrap;
+  }
+}

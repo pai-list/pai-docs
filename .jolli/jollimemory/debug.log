@@ -1,0 +1,5 @@
+[2026-07-18T05:46:29.939Z] INFO  [StorageFactory] [trace=b363c5aabcc0aeb9d5656e01363b32a1] Storage mode: dual-write (primary=orphan, shadow=folder)
+[2026-07-18T05:46:29.948Z] INFO  [McpServer] [trace=b363c5aabcc0aeb9d5656e01363b32a1] MCP server connected over stdio (cwd=/Users/cryptojoker710/pai-docs)
+[2026-07-18T05:46:55.006Z] INFO  [StorageFactory] [trace=02d1c4ca973386c183809f97f148504b] StorageFactory.create: storageMode=dual-write, projectPath=/Users/cryptojoker710/pai-docs
+[2026-07-18T05:46:55.097Z] INFO  [StorageFactory] [trace=02d1c4ca973386c183809f97f148504b] Storage mode: dual-write (primary=orphan, shadow=folder)
+[2026-07-18T05:46:55.102Z] INFO  [McpServer] [trace=02d1c4ca973386c183809f97f148504b] MCP server connected over stdio (cwd=/Users/cryptojoker710/pai-docs)
