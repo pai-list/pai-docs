@@ -1,14 +1,23 @@
 # PAI Docs
 
-> **PAI** — *Pi + AI.* The developer documentation for Pi Network's agent layer.
+> **PAI** — *Pi + AI.* Developer documentation for Pi Network's agent layer.
 
-Everything you need to build, deploy, and monetize AI agents on Pi Network.
+---
 
-## Site
+## Status
 
-VitePress documentation for PAI, ready to deploy to GitHub Pages.
+| Component | Status | Notes |
+|-----------|--------|-------|
+| **VitePress Config** | ✅ **Scaffold** | VitePress docs site ready to deploy |
+| **Getting Started** | ⏳ **Planned** | Installation, first agent, Pi wallet setup |
+| **Core Concepts** | ⏳ **Planned** | Architecture, skills, identity (DIDs + OpenIdentity) |
+| **Guides** | ⏳ **Planned** | Verify agent, trust agent, identity agent, payment agent |
+| **Reference** | ⏳ **Planned** | @pai/core, @pai/verify, @pai/skills, @pai/verify API refs |
+| **Deployment** | ⏳ **Planned** | GitHub Pages / Cloudflare Pages |
 
-## Contents
+---
+
+## Structure
 
 ```
 docs/
@@ -28,43 +37,42 @@ docs/
 ├── reference/
 │   ├── pai-core.md          ← @pai/core API reference
 │   ├── pai-verify.md        ← @pai/verify API reference
-│   ├── pai-identity.md      ← @pai/identity API reference
-│   ├── pai-cli.md           ← CLI command reference
-│   └── pai-mcp.md           ← MCP tool reference
-├── tutorials/
-│   ├── hackathon-guide.md   ← How to run a PAI hackathon
-│   ├── monetization.md      ← Pricing your agent services
-│   ├── acp-integration.md   ← List on Virtuals marketplace
-│   └── pi-browser-deploy.md ← Deploy to Pi Browser
-└── ecosystem/
-    ├── pai-list.md          ← Organization overview
-    ├── contributing.md      ← How to contribute
-    └── roadmap.md           ← What's coming
+│   ├── pai-skills.md        ← @pai/skills API reference
+│   └── pai-wallet.md        ← @pai/wallet API reference
+└── ...
 ```
-
-## Build Locally
-
-```bash
-git clone https://github.com/pai-list/docs
-cd docs
-npm ci
-npm run dev
-```
-
-For a production build, run `npm run build`. GitHub Actions deploys pushes to `main`
-using the repository's GitHub Pages environment.
-
-## Quick Links
-
-- [PAI Agent Kit](https://github.com/pai-list/agent-kit) — Core framework
-- [PAI Skills](https://github.com/pai-list/skills) — Skill marketplace
-- [PAI CLI](https://github.com/pai-list/cli) — Developer CLI
-- [PAI MCP](https://github.com/pai-list/mcp) — MCP server
-
-## License
-
-PiOS — Pi Open Source License
 
 ---
 
-**PAI Docs.** Documentation for the agent layer of Pi Network.
+## Quick Start
+
+```bash
+# Install
+npm install
+
+# Dev server
+npm run docs:dev
+
+# Build
+npm run docs:build
+
+# Preview
+npm run docs:preview
+```
+
+---
+
+## Deployment
+
+- **Target:** GitHub Pages / Cloudflare Pages
+- **Domain:** `docs.pai.build` (pending `pai.build` domain registration)
+
+---
+
+## License
+
+MIT — Free for all agents, all humans, all purposes.
+
+---
+
+*Part of the PAI Universe. Documentation for Pi + AI.*
