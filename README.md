@@ -1,6 +1,6 @@
 # PAI Docs
 
-> **PAI** — *Pi + AI.* Developer documentation for Pi Network's agent layer.
+> **PAI** — *Pi + AI.* Unified developer documentation for Pi Network's agent layer.
 
 ---
 
@@ -8,12 +8,14 @@
 
 | Component | Status | Notes |
 |-----------|--------|-------|
-| **VitePress Config** | ✅ **Scaffold** | VitePress docs site ready to deploy |
-| **Getting Started** | ⏳ **Planned** | Installation, first agent, Pi wallet setup |
-| **Core Concepts** | ⏳ **Planned** | Architecture, skills, identity (DIDs + OpenIdentity) |
-| **Guides** | ⏳ **Planned** | Verify agent, trust agent, identity agent, payment agent |
-| **Reference** | ⏳ **Planned** | @pai/core, @pai/verify, @pai/skills, @pai/verify API refs |
-| **Deployment** | ⏳ **Planned** | GitHub Pages / Cloudflare Pages |
+| **VitePress Config** | ✅ **Complete** | Multi-protocol docs site |
+| **Getting Started** | ✅ **Complete** | Installation, first agent, Pi wallet setup |
+| **Core Concepts** | ✅ **Complete** | Architecture, skills, identity, trust |
+| **Guides** | ✅ **Complete** | Verify, trust, identity, payment agents |
+| **Reference** | ✅ **Complete** | @pai/core, @pai/verify, @pai/identity, @pai/payments, CLI, MCP |
+| **Protocols: PPP** | ✅ **Complete** | Full spec, whitepaper, implementations |
+| **Protocols: OpenIdentity** | ✅ **Complete** | Guide, API reference, DID spec, TrustChain |
+| **Deployment** | ✅ **Complete** | Cloudflare Pages → `docs.axiomid.app` |
 
 ---
 
@@ -21,26 +23,37 @@
 
 ```
 docs/
-├── getting-started/
-│   ├── installation.md       ← Install PAI CLI
-│   ├── your-first-agent.md   ← Build an agent in 5 minutes
-│   └── pi-wallet-setup.md   ← Connect Pi wallet
-├── core-concepts/
-│   ├── architecture.md       ← How PAI works
-│   ├── skills.md            ← Composable skill system
-│   └── identity.md          ← DIDs + OpenIdentity
-├── guides/
-│   ├── verify-agent.md      ← Build a verification agent
-│   ├── trust-agent.md       ← Build a trust scoring agent
-│   ├── identity-agent.md    ← Build a DID issuer agent
-│   └── payment-agent.md     ← Build a payment agent
-├── reference/
-│   ├── pai-core.md          ← @pai/core API reference
-│   ├── pai-verify.md        ← @pai/verify API reference
-│   ├── pai-skills.md        ← @pai/skills API reference
-│   └── pai-wallet.md        ← @pai/wallet API reference
+├── getting-started/           # Onboarding
+├── core-concepts/             # Architecture, skills, identity, trust
+├── guides/                    # Production agent guides
+├── reference/                 # Package API references
+├── tutorials/                 # Hackathon, monetization, ACP, Pi Browser
+├── ecosystem/                 # PAI List, contributing, security, roadmap
+├── protocols/
+│   ├── ppp/                   # PAI Protocol (PPP) - wire protocol
+│   │   ├── spec/              # Message format, header, body, receipt, routing, errors
+│   │   ├── whitepaper/        # Executive summary, architecture
+│   │   └── implementations/   # TypeScript, Rust, Go, Python
+│   └── openidentity/          # OpenIdentity Protocol - decentralized identity
+│       ├── guide/             # Getting started, architecture, DID method, TrustChain
+│       ├── guide/guides/      # Quickstart, integration, SDK, Pi KYC, passport, trust score
+│       └── reference/         # Auth, memory, verify, webhooks, DID, passport, TrustChain, errors, rate limits
 └── ...
 ```
+
+---
+
+## Protocols Documented
+
+### PAI Protocol (PPP)
+Universal wire protocol for autonomous agent communication.
+- **Spec repo:** [github.com/pai-list/PAI-Protocol](https://github.com/pai-list/PAI-Protocol)
+- **Docs:** `/protocols/ppp/`
+
+### OpenIdentity Protocol
+Decentralized identity for the agent economy (W3C DIDs + Pi Network KYC).
+- **Spec repo:** [github.com/pai-list/openidentity.md](https://github.com/pai-list/openidentity.md)
+- **Docs:** `/protocols/openidentity/`
 
 ---
 
@@ -48,24 +61,38 @@ docs/
 
 ```bash
 # Install
-npm install
+pnpm install
 
 # Dev server
-npm run docs:dev
+pnpm run dev
 
 # Build
-npm run docs:build
+pnpm run build
 
 # Preview
-npm run docs:preview
+pnpm run preview
 ```
 
 ---
 
 ## Deployment
 
-- **Target:** GitHub Pages / Cloudflare Pages
-- **Domain:** `docs.pai.build` (pending `pai.build` domain registration)
+- **Platform:** Cloudflare Pages
+- **Project:** `pai-docs`
+- **Production URL:** https://pai-docs.pages.dev
+- **Custom Domain:** `docs.axiomid.app` (configured via Cloudflare custom domains)
+- **Build Command:** `pnpm run build`
+- **Output Directory:** `docs/.vitepress/dist`
+
+---
+
+## DNS Configuration
+
+| Subdomain | Target | Status |
+|-----------|--------|--------|
+| `docs.axiomid.app` | `pai-docs.pages.dev` | ✅ Proxied |
+| `ppp.axiomid.app` | `PAI-Protocol` Pages (separate) | ⏳ Pending |
+| `openidentity.axiomid.app` | `openidentity.md` Pages (separate) | ⏳ Pending |
 
 ---
 
