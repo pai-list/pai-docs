@@ -4,7 +4,7 @@ layout: doc
 
 # OpenIdentity Protocol
 
-Decentralized Identity for the Agent Economy — sovereign identity for humans and AI agents. Built on Pi Network. Powered by mem7.
+Decentralized Identity for the Agent Economy — sovereign identity for humans and AI agents. Built on Pi Network. Governed by the SOUL Protocol.
 
 ## Guide
 
