@@ -1,23 +1,23 @@
 {
   "name": "pai-docs",
   "version": "1.0.0",
-  "private": true,
-  "type": "module",
-  "scripts": {
-    "dev": "vitepress dev docs",
-    "build": "vitepress build docs",
-    "preview": "vitepress preview docs",
-    "lint": "prettier --check \"docs/**/*.{md,ts,vue,css}\" \"*.json\" \".github/**/*.yml\"",
-    "format": "prettier --write \"docs/**/*.{md,ts,vue,css}\" \"*.json\" \".github/**/*.yml\"",
-    "typecheck": "tsc --noEmit",
-    "test": "vitest run"
-  },
   "devDependencies": {
-    "@types/node": "^22.13.10",
-    "prettier": "^3.5.3",
-    "typescript": "^5.7.0",
+    "@types/node": "^26",
+    "prettier": "^3.8.3",
+    "typescript": "^5",
     "vitepress": "^1.6.3",
-    "vitest": "^2.0.0",
+    "vitest": "^4.0.17",
     "vue": "^3.5.13"
-  }
+  },
+  "private": true,
+  "scripts": {
+    "build": "vitepress build docs",
+    "dev": "vitepress dev docs",
+    "format": "prettier --write \"docs/**/*.{md,ts,vue,css}\" \"*.json\" \".github/**/*.yml\"",
+    "lint": "prettier --check \"docs/**/*.{md,ts,vue,css}\" \"*.json\" \".github/**/*.yml\"",
+    "preview": "vitepress preview docs",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "type": "module"
 }
