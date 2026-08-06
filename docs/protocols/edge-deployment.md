@@ -30,6 +30,9 @@ DNS: apex `axiomid.app` on Cloudflare; each service subdomain → A/CNAME to its
 | `openid.axiomid.app` | DID / OIDC-like metadata — LIVE, keep | Pages |
 | `mail.axiomid.app` / `email.axiomid.app` | Inbound email webhook endpoints | Worker (email routing) |
 | `memory.axiomid.app`, `skills.axiomid.app`, `agdp.axiomid.app` | WS2 capability one-pagers | Pages/UI |
+| `rewards.axiomid.app` | Loop feedback: reputation, XP, rewards (TrustChain-derived, never inherited) | Pages/UI |
+| `ads.axiomid.app` | Agentic attention economy funding the labor loop | Pages/UI |
+| `learn.axiomid.app` | Discovery & portability: agents/humans find each other; PPP packs as plug-ins | Pages/UI |
 
 Notes: `api.axiomid.app` → 404 (unpublished — reserved for AxiomID API). Wildcard `*.axiomid.app` handled by `pai-api-gateway/workers/subdomain-redirect`.
 
@@ -46,6 +49,15 @@ Notes: `api.axiomid.app` → 404 (unpublished — reserved for AxiomID API). Wil
 
 - **Redirect worker**: passthrough now covers the full subdomain registry (aip/auth/earn/jobs/ppp/mcp/gspace/openid/memory/skills/agdp/docs/mail/api/www/pai-website). No unknown subdomain is hijacked to `/passport/*`;
 - **`pai-mcp`** edge stub live at `mcp.axiomid.app` (`src/worker.ts`: GET probe + JSON-RPC `tools/list`); stdio CLI untouched.
-- **`protocol-stubs` worker live** (infrastructure/protocol-stubs): `aip`, `auth`, `earn`, `jobs`, `ppp`, `memory`, `skills` each serve honest PoC landing pages + `/health` JSON probe.
+- **`protocol-stubs` worker live** (infrastructure/protocol-stubs): `aip`, `auth`, `earn`, `jobs`, `ppp`, `memory`, `skills`, `rewards`, `ads`, `learn` each serve honest PoC landing pages + `/health` JSON probe.
 - **Workers relocated**: `pai-1loop-router` + `subdomain-redirect` → `layer-4-mcp-gateway/pai-api-gateway/workers/`.
-- Verified live (200): mcp, aip, auth, earn, jobs, ppp, memory, skills, gspace, openid. `pai-website`/`docs` serve origin (404/302 onboard pending real deployment).
+- Verified live (200): mcp, aip, auth, earn, jobs, ppp, memory, skills, rewards, ads, learn, gspace, openid. `pai-website`/`docs` serve origin (404/302 onboard pending real deployment).
+
+## Closed loop: earn → rewards → ads → learn → earn
+
+Meta-improving loop over the labor marketplace. Research-validated:
+
+- **arxiv 2512.04988** — Strategic Self-Improvement for Competitive Agents in AI Labour Markets: agents in simulated gig economies need metacognition, competitive awareness, long-horizon planning; adverse selection + moral hazard dominate without reward design. → Rewards must drive reputation and skill accumulation, not just payout.
+- **arxiv 2604.06688** — When Agent Markets Arrive (Diagon): human-market mechanisms backfire in agent markets — honesty instructions intensify disputes, identity transparency fragments trade. → Reputation re-earned, never inherited; DID for accountability, not provenance; pay-for-performance contracts.
+- **arxiv 2605.17698** — Agent Bazaar: The Crash (price undercutting) + The Lemon Market (Sybil fraud) → need economic alignment: reputation that cannot be Sybil-faked. → Pi KYC/DID gate on cheap identity; TrustChain-derived reputation.
+- **arxiv 2510.25779** — Magentic Marketplace: search ordering + first-proposal bias materially shape outcomes → `learn.axiomid.app` discovery design is a decision, not cosmetic.
