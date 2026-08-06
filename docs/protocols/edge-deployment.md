@@ -42,7 +42,10 @@ Notes: `api.axiomid.app` → 404 (unpublished — reserved for AxiomID API). Wil
 4. E2E: Playwright + kernel smoke + portless dev.
 5. Document results + ADR in `pai-docs`.
 
-## Current PoC status
+## Current PoC status (2026-08-06)
 
-- `pai-mcp` edge stub: `src/worker.ts` (GET probe + JSON-RPC `tools/list`), wrangler `main` switched; `@pai/mcp` stdio CLI untouched.
-- Workers relocated: `pai-7loop-router` + `subdomain-redirect` → `layer-4-mcp-gateway/pai-api-gateway/workers/`.
+- **Redirect worker**: passthrough now covers the full subdomain registry (aip/auth/earn/jobs/ppp/mcp/gspace/openid/memory/skills/agdp/docs/mail/api/www/pai-website). No unknown subdomain is hijacked to `/passport/*`;
+- **`pai-mcp`** edge stub live at `mcp.axiomid.app` (`src/worker.ts`: GET probe + JSON-RPC `tools/list`); stdio CLI untouched.
+- **`protocol-stubs` worker live** (infrastructure/protocol-stubs): `aip`, `auth`, `earn`, `jobs`, `ppp`, `memory`, `skills` each serve honest PoC landing pages + `/health` JSON probe.
+- **Workers relocated**: `pai-1loop-router` + `subdomain-redirect` → `layer-4-mcp-gateway/pai-api-gateway/workers/`.
+- Verified live (200): mcp, aip, auth, earn, jobs, ppp, memory, skills, gspace, openid. `pai-website`/`docs` serve origin (404/302 onboard pending real deployment).
