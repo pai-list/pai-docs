@@ -59,13 +59,42 @@ Every PAI repo ships at the root:
 
 The ADK `init` generator creates this layout + a starter AOR.
 
-## 5. Open questions (Shura)
+## 5. Model Router — capabilities declare, router decides
+
+Model choice is **never hardcoded inside agents or ADK**. Each capability declares what it needs; a Model Router resolves the actual provider at runtime. If a better model ships in six months, only the routing policy changes — never the agents.
+
+```json
+{
+  "capabilities": [
+    { "id": "planning", "preferred_model": "glm-5.2" },
+    { "id": "coding",   "preferred_model": "laguna-xs-2.1" },
+    { "id": "research", "preferred_model": "inkling" },
+    { "id": "vision",   "preferred_model": "inkling" },
+    { "id": "image_generation", "preferred_model": "flux.1-dev" },
+    { "id": "voice",    "preferred_model": "riva" },
+    { "id": "policy",   "preferred_model": "policy-model" }
+  ]
+}
+```
+
+- **Policy Agent** runs only after the main agent finishes — policy checking, safety, compliance, governance. It is never a general assistant.
+- Agent roles: `CEO`/`Architect` → planning (glm-5.2); `Coding` → laguna-xs-2.1; `Research`/`Vision` → inkling; `Image` → flux.1-dev; `Voice` → riva/voice-agent; `Policy` → policy model.
+- The router is a policy table (spec artifact), not an agent — swapping `preferred_model` values is a config change, not a code change.
+
+## 6. Open questions (Shura)
 
 - AOR signing/verification boundaries: verify with AxiomID credential-status (requires auth today) — should AOR be public-readable and auth only for write/sign?
 - Does AOR serve the research paper first (publishable spec) or the product first (used by ADK)?
 - Where does `trust{}` live — derived from TrustChain events (read = derived, not stored)?
 
-## 6. References
+## 6. Open questions (Shura)
+
+- AOR signing/verification boundaries: verify with AxiomID credential-status (requires auth today) — should AOR be public-readable and auth only for write/sign?
+- Does AOR serve the research paper first (publishable spec) or the product first (used by ADK)?
+- Where does `trust{}` live — derived from TrustChain events (read = derived, not stored)?
+- NIM integration: which router endpoint exposes the model catalog (`/v1/models`) and where does routing policy live — spec file vs runtime config?
+
+## 7. References
 
 - WS3 ADK (`@pai/adk init` scaffold)
 - WS5 repo standard (5 files)
